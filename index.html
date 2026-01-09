@@ -231,42 +231,86 @@
     btnMultiplicar.addEventListener("click", multiplicar);
 
     // ========== FORMULARIO REGISTRO CON CLASE ==========
-    // Creamos la clase Persona
+    
     class Persona {
-        // Constructor con dos propiedades: nombre y apellido
+        
         constructor(nombre, apellido) {
             this.nombre = nombre;
             this.apellido = apellido;
         }
 
-        // Método que concatena nombre y apellido
+        
         getNombreCompleto() {
             return this.nombre + " " + this.apellido;
         }
     }
 
-    // Función para registrar la persona
+    
     function registrar() {
-        // Seleccionamos los elementos del DOM
+        
         const txtNombre = document.getElementById("txtNombre");
         const txtApellido = document.getElementById("txtApellido");
         const txtNombreCompleto = document.getElementById("txtNombreCompleto");
         
-        // Creamos un objeto de la clase Persona con los valores de las cajas
+        
         const persona = new Persona(txtNombre.value, txtApellido.value);
         
-        // Llamamos al método getNombreCompleto()
+        
         const nombreCompleto = persona.getNombreCompleto();
         
-        // Mostramos el nombre completo en la caja de texto
+        
         txtNombreCompleto.value = nombreCompleto;
     }
 
-    // Seleccionamos el botón de registrar
+    
     const btnRegistrar = document.getElementById("btnRegistrar");
     
-    // Agregamos el evento click al botón
+    
     btnRegistrar.addEventListener("click", registrar);
+    // ========== FECHA ACTUAL CON PROMESA ==========
+    
+    function actualizarFecha() {
+        return new Promise(function(resolve) {
+            
+            const fecha = new Date();
+            
+            
+            const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            
+            
+            const diaSemana = dias[fecha.getDay()];
+            const dia = fecha.getDate();
+            const mes = meses[fecha.getMonth()];
+            const anio = fecha.getFullYear();
+            
+            
+            const horas = fecha.getHours().toString().padStart(2, '0');
+            const minutos = fecha.getMinutes().toString().padStart(2, '0');
+            const segundos = fecha.getSeconds().toString().padStart(2, '0');
+            
+            
+            const fechaCompleta = diaSemana + ", " + dia + " de " + mes + " de " + anio + " - " + horas + ":" + minutos + ":" + segundos;
+            
+          
+            resolve(fechaCompleta);
+        });
+    }
+
+   
+    function mostrarFecha() {
+        
+        actualizarFecha().then(function(fechaCompleta) {
+            const txtFechaActual = document.getElementById("txtFechaActual");
+            txtFechaActual.value = fechaCompleta;
+        });
+    }
+
+    
+    setInterval(mostrarFecha, 60000);
+    
+   
+    mostrarFecha();
 </script>
 <body>
     <div class="container">
