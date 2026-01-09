@@ -203,6 +203,7 @@
         }
     </style>
 </head>
+
 <script>
     // ========== FORMULARIO MULTIPLICAR ==========
     
@@ -228,6 +229,44 @@
     
     
     btnMultiplicar.addEventListener("click", multiplicar);
+
+    // ========== FORMULARIO REGISTRO CON CLASE ==========
+    // Creamos la clase Persona
+    class Persona {
+        // Constructor con dos propiedades: nombre y apellido
+        constructor(nombre, apellido) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+
+        // Método que concatena nombre y apellido
+        getNombreCompleto() {
+            return this.nombre + " " + this.apellido;
+        }
+    }
+
+    // Función para registrar la persona
+    function registrar() {
+        // Seleccionamos los elementos del DOM
+        const txtNombre = document.getElementById("txtNombre");
+        const txtApellido = document.getElementById("txtApellido");
+        const txtNombreCompleto = document.getElementById("txtNombreCompleto");
+        
+        // Creamos un objeto de la clase Persona con los valores de las cajas
+        const persona = new Persona(txtNombre.value, txtApellido.value);
+        
+        // Llamamos al método getNombreCompleto()
+        const nombreCompleto = persona.getNombreCompleto();
+        
+        // Mostramos el nombre completo en la caja de texto
+        txtNombreCompleto.value = nombreCompleto;
+    }
+
+    // Seleccionamos el botón de registrar
+    const btnRegistrar = document.getElementById("btnRegistrar");
+    
+    // Agregamos el evento click al botón
+    btnRegistrar.addEventListener("click", registrar);
 </script>
 <body>
     <div class="container">
