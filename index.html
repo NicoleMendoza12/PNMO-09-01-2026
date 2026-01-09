@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea HTML CSS JS - Paola Mendoza</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        
+        .fecha-actual {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .fecha-actual label {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .fecha-actual input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 1em;
+            text-align: center;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        
+        .formularios-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+       
+        .form-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .form-box h2 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        
+        label {
+            display: block;
+            color: #333;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            margin-top: 15px;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        input[type="text"]:disabled {
+            background-color: #e9e9e9;
+            cursor: not-allowed;
+        }
+
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+
+        
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .formularios-container {
+                flex-direction: column;
+            }
+
+            .form-box {
+                min-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .form-box {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<script>
+    // ========== FORMULARIO MULTIPLICAR ==========
+    
+    function multiplicar() {
+       
+        const txtNumero1 = document.getElementById("txtNumero1");
+        const txtNumero2 = document.getElementById("txtNumero2");
+        const txtResultado = document.getElementById("txtResultado");
+        
+        
+        const num1 = parseInt(txtNumero1.value);
+        const num2 = parseInt(txtNumero2.value);
+        
+       
+        const resultado = num1 * num2;
+        
+        
+        txtResultado.value = resultado;
+    }
+
+    
+    const btnMultiplicar = document.getElementById("btnMultiplicar");
+    
+    
+    btnMultiplicar.addEventListener("click", multiplicar);
+</script>
+<body>
+    <div class="container">
+        <header>
+            <h1>Práctica HTML, CSS y JavaScript</h1>
+            <p>Paola Nicole Mendoza Ordoñez</p>
+        </header>
+
+        <main>
+            
+            <section class="fecha-actual">
+                <label for="txtFechaActual">Fecha Actual</label>
+                <input type="text" id="txtFechaActual" disabled>
+            </section>
+
+            
+            <div class="formularios-container">
+                
+                
+                <div class="form-box">
+                    <h2>Multiplicar Números</h2>
+                    <form id="frmMultiplicar">
+                        <label for="txtNumero1">Número 1</label>
+                        <input type="text" id="txtNumero1" placeholder="Ingrese número 1">
+                        
+                        <label for="txtNumero2">Número 2</label>
+                        <input type="text" id="txtNumero2" placeholder="Ingrese número 2">
+                        
+                        <label for="txtResultado">Resultado</label>
+                        <input type="text" id="txtResultado" disabled>
+                        
+                        <button type="button" id="btnMultiplicar">Multiplicar</button>
+                    </form>
+                </div>
+
+                
+                <div class="form-box">
+                    <h2>Registro Personal</h2>
+                    <form id="frmRegistro">
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" id="txtNombre" placeholder="Ingrese su nombre">
+                        
+                        <label for="txtApellido">Apellido</label>
+                        <input type="text" id="txtApellido" placeholder="Ingrese su apellido">
+                        
+                        <label for="txtNombreCompleto">Nombre Completo</label>
+                        <input type="text" id="txtNombreCompleto" disabled>
+                        
+                        <button type="button" id="btnRegistrar">Registrar</button>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Tarea de Programación Web</p>
+        </footer>
+    </div>
+</body>
+</html>
