@@ -203,6 +203,64 @@
         }
     </style>
 </head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Práctica HTML, CSS y JavaScript</h1>
+            <p>Paola Nicole Mendoza Ordoñez</p>
+        </header>
+
+        <main>
+            
+            <section class="fecha-actual">
+                <label for="txtFechaActual">Fecha Actual</label>
+                <input type="text" id="txtFechaActual" disabled>
+            </section>
+
+            
+            <div class="formularios-container">
+                
+                
+                <div class="form-box">
+                    <h2>Multiplicar Números</h2>
+                    <form id="frmMultiplicar">
+                        <label for="txtNumero1">Número 1</label>
+                        <input type="text" id="txtNumero1" placeholder="Ingrese número 1">
+                        
+                        <label for="txtNumero2">Número 2</label>
+                        <input type="text" id="txtNumero2" placeholder="Ingrese número 2">
+                        
+                        <label for="txtResultado">Resultado</label>
+                        <input type="text" id="txtResultado" disabled>
+                        
+                        <button type="button" id="btnMultiplicar">Multiplicar</button>
+                    </form>
+                </div>
+
+                
+                <div class="form-box">
+                    <h2>Registro Personal</h2>
+                    <form id="frmRegistro">
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" id="txtNombre" placeholder="Ingrese su nombre">
+                        
+                        <label for="txtApellido">Apellido</label>
+                        <input type="text" id="txtApellido" placeholder="Ingrese su apellido">
+                        
+                        <label for="txtNombreCompleto">Nombre Completo</label>
+                        <input type="text" id="txtNombreCompleto" disabled>
+                        
+                        <button type="button" id="btnRegistrar">Registrar</button>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Tarea de Programación Web</p>
+        </footer>
+    </div>
 
 <script>
     // ========== FORMULARIO MULTIPLICAR ==========
@@ -312,63 +370,5 @@
    
     mostrarFecha();
 </script>
-<body>
-    <div class="container">
-        <header>
-            <h1>Práctica HTML, CSS y JavaScript</h1>
-            <p>Paola Nicole Mendoza Ordoñez</p>
-        </header>
-
-        <main>
-            
-            <section class="fecha-actual">
-                <label for="txtFechaActual">Fecha Actual</label>
-                <input type="text" id="txtFechaActual" disabled>
-            </section>
-
-            
-            <div class="formularios-container">
-                
-                
-                <div class="form-box">
-                    <h2>Multiplicar Números</h2>
-                    <form id="frmMultiplicar">
-                        <label for="txtNumero1">Número 1</label>
-                        <input type="text" id="txtNumero1" placeholder="Ingrese número 1">
-                        
-                        <label for="txtNumero2">Número 2</label>
-                        <input type="text" id="txtNumero2" placeholder="Ingrese número 2">
-                        
-                        <label for="txtResultado">Resultado</label>
-                        <input type="text" id="txtResultado" disabled>
-                        
-                        <button type="button" id="btnMultiplicar">Multiplicar</button>
-                    </form>
-                </div>
-
-                
-                <div class="form-box">
-                    <h2>Registro Personal</h2>
-                    <form id="frmRegistro">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" id="txtNombre" placeholder="Ingrese su nombre">
-                        
-                        <label for="txtApellido">Apellido</label>
-                        <input type="text" id="txtApellido" placeholder="Ingrese su apellido">
-                        
-                        <label for="txtNombreCompleto">Nombre Completo</label>
-                        <input type="text" id="txtNombreCompleto" disabled>
-                        
-                        <button type="button" id="btnRegistrar">Registrar</button>
-                    </form>
-                </div>
-
-            </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 - Tarea de Programación Web</p>
-        </footer>
-    </div>
 </body>
-</html>
+</html
