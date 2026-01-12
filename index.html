@@ -5,370 +5,422 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea HTML CSS JS - Paola Mendoza</title>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(180deg, #4a90e2 0%, #357abd 100%);
             min-height: 100vh;
-            padding: 20px;
-        }
-
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        
-        .fecha-actual {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .fecha-actual label {
-            color: #333;
-            font-size: 1.1em;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .fecha-actual input {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            font-size: 1em;
-            text-align: center;
-            border: 2px solid #667eea;
-            border-radius: 5px;
-            background-color: white;
-        }
-
-        
-        .formularios-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-between;
+            flex-direction: column;
         }
 
-       
-        .form-box {
+        /* Header superior azul */
+        .header-top {
+            background: linear-gradient(180deg, #0066cc 0%, #004c99 100%);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid #66b3ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* Contenedor principal */
+        .main-wrapper {
+            display: flex;
             flex: 1;
-            min-width: 300px;
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 8px;
-            border: 2px solid #e0e0e0;
+        }
+
+        /* Menú lateral */
+        .sidebar {
+            background-color: #6b8e6b;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item {
+            padding: 20px 10px;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Área de contenido principal */
+        .content-wrapper {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Contenedor de los dos formularios */
+        .forms-container {
+            display: flex;
+            gap: 15px;
+            flex: 1;
+        }
+
+        /* Caja de formulario */
+        .form-box {
+            background-color: white;
+            border: 2px solid #357abd;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-box h2 {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        
-        label {
-            display: block;
-            color: #333;
-            font-size: 1em;
+            color: #000;
+            font-size: 14px;
+            margin-bottom: 15px;
             font-weight: bold;
-            margin-bottom: 8px;
-            margin-top: 15px;
         }
 
-        label:first-of-type {
-            margin-top: 0;
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
         }
 
-        
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s;
+        .form-row label {
+            min-width: 110px;
+            font-size: 13px;
+            color: #000;
         }
 
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #667eea;
+        .form-row input[type="text"] {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 1px solid #999;
         }
 
-        input[type="text"]:disabled {
-            background-color: #e9e9e9;
-            cursor: not-allowed;
+        .form-row input[type="text"]:disabled {
+            background-color: #d3d3d3;
         }
 
-        
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            font-size: 1.1em;
+        /* Botones */
+        .btn {
+            padding: 8px 25px;
+            font-size: 13px;
             font-weight: bold;
             color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px 0;
+            align-self: flex-start;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .btn-green {
+            background-color: #7cb342;
         }
 
-        button:active {
-            transform: translateY(0);
+        .btn-green:hover {
+            background-color: #689f38;
         }
 
-        
-        footer {
+        .btn-red {
+            background-color: #c62828;
+        }
+
+        .btn-red:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Sección de fecha */
+        .fecha-box {
+            background-color: white;
+            border: 2px solid #357abd;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fecha-box label {
+            font-size: 13px;
+            color: #000;
+            min-width: 90px;
+        }
+
+        .fecha-box input {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 1px solid #999;
+            background-color: #d3d3d3;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #0066cc 0%, #004c99 100%);
+            padding: 12px;
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #e0e0e0;
-            color: #666;
+            color: white;
+            font-size: 13px;
         }
 
-        
+        /* Media Queries */
+        @media screen and (max-width: 1024px) {
+            .forms-container {
+                flex-direction: column;
+            }
+        }
+
         @media screen and (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .formularios-container {
+            .main-wrapper {
                 flex-direction: column;
             }
 
-            .form-box {
-                min-width: 100%;
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+            }
+
+            .menu-item {
+                flex: 1;
+                border-bottom: none;
+                border-right: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .menu-item:last-child {
+                border-right: none;
+            }
+
+            .content-wrapper {
+                padding: 15px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-row label {
+                min-width: auto;
+            }
+
+            .form-row input[type="text"] {
+                width: 100%;
+            }
+
+            .fecha-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .fecha-box label {
+                min-width: auto;
+            }
+
+            .fecha-box input {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
             }
         }
 
         @media screen and (max-width: 480px) {
-            body {
-                padding: 10px;
+            .header-top {
+                padding: 8px 10px;
             }
 
-            h1 {
-                font-size: 1.5em;
+            .user-info span {
+                display: none;
             }
 
             .form-box {
                 padding: 15px;
             }
 
-            button {
-                font-size: 1em;
+            .content-wrapper {
                 padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Práctica HTML, CSS y JavaScript</h1>
-            <p>Paola Nicole Mendoza Ordoñez</p>
-        </header>
-
-        <main>
-            
-            <section class="fecha-actual">
-                <label for="txtFechaActual">Fecha Actual</label>
-                <input type="text" id="txtFechaActual" disabled>
-            </section>
-
-            
-            <div class="formularios-container">
-                
-                
-                <div class="form-box">
-                    <h2>Multiplicar Números</h2>
-                    <form id="frmMultiplicar">
-                        <label for="txtNumero1">Número 1</label>
-                        <input type="text" id="txtNumero1" placeholder="Ingrese número 1">
-                        
-                        <label for="txtNumero2">Número 2</label>
-                        <input type="text" id="txtNumero2" placeholder="Ingrese número 2">
-                        
-                        <label for="txtResultado">Resultado</label>
-                        <input type="text" id="txtResultado" disabled>
-                        
-                        <button type="button" id="btnMultiplicar">Multiplicar</button>
-                    </form>
-                </div>
-
-                
-                <div class="form-box">
-                    <h2>Registro Personal</h2>
-                    <form id="frmRegistro">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" id="txtNombre" placeholder="Ingrese su nombre">
-                        
-                        <label for="txtApellido">Apellido</label>
-                        <input type="text" id="txtApellido" placeholder="Ingrese su apellido">
-                        
-                        <label for="txtNombreCompleto">Nombre Completo</label>
-                        <input type="text" id="txtNombreCompleto" disabled>
-                        
-                        <button type="button" id="btnRegistrar">Registrar</button>
-                    </form>
-                </div>
-
-            </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 - Tarea de Programación Web</p>
-        </footer>
+    <!-- Header superior -->
+    <div class="header-top">
+        <div class="user-info">
+            <span>[Paola Nicole Mendoza Ordoñez]</span>
+            <div class="user-avatar">👤</div>
+        </div>
     </div>
 
-<script>
-    // ========== FORMULARIO MULTIPLICAR ==========
-    
-    function multiplicar() {
-       
-        const txtNumero1 = document.getElementById("txtNumero1");
-        const txtNumero2 = document.getElementById("txtNumero2");
-        const txtResultado = document.getElementById("txtResultado");
-        
-        
-        const num1 = parseInt(txtNumero1.value);
-        const num2 = parseInt(txtNumero2.value);
-        
-       
-        const resultado = num1 * num2;
-        
-        
-        txtResultado.value = resultado;
-    }
+    <!-- Wrapper principal -->
+    <div class="main-wrapper">
+        <!-- Menú lateral -->
+        <aside class="sidebar">
+            <div class="menu-item">Menu 1</div>
+            <div class="menu-item">Menu 2</div>
+        </aside>
 
-    
-    const btnMultiplicar = document.getElementById("btnMultiplicar");
-    
-    
-    btnMultiplicar.addEventListener("click", multiplicar);
+        <!-- Contenido principal -->
+        <div class="content-wrapper">
+            <!-- Contenedor de formularios -->
+            <div class="forms-container">
+                <!-- Formulario Multiplicar -->
+                <div class="form-box">
+                    <h2>Formulario  para Multiplicar</h2>
+                    <form id="frmMultiplicar">
+                        <div class="form-row">
+                            <label for="txtNumero1">Número 1</label>
+                            <input type="text" id="txtNumero1">
+                        </div>
+                        <div class="form-row">
+                            <label for="txtNumero2">Número 2</label>
+                            <input type="text" id="txtNumero2">
+                        </div>
+                        <button type="button" id="btnMultiplicar" class="btn btn-green">Multiplicar</button>
+                        <div class="form-row">
+                            <label for="txtResultado">Resultado</label>
+                            <input type="text" id="txtResultado" disabled>
+                        </div>
+                    </form>
+                </div>
 
-    // ========== FORMULARIO REGISTRO CON CLASE ==========
-    
-    class Persona {
-        
-        constructor(nombre, apellido) {
-            this.nombre = nombre;
-            this.apellido = apellido;
+                <!-- Formulario Registro -->
+                <div class="form-box">
+                    <h2>Formulario  de registro personal</h2>
+                    <form id="frmRegistro">
+                        <div class="form-row">
+                            <label for="txtNombre">Nombre</label>
+                            <input type="text" id="txtNombre">
+                        </div>
+                        <div class="form-row">
+                            <label for="txtApellido">Apellido</label>
+                            <input type="text" id="txtApellido">
+                        </div>
+                        <button type="button" id="btnRegistrar" class="btn btn-red">Registrar</button>
+                        <div class="form-row">
+                            <label for="txtNombreCompleto">Nombre completo</label>
+                            <input type="text" id="txtNombreCompleto" disabled>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sección de fecha -->
+            <div class="fecha-box">
+                <label for="txtFechaActual">Fecha actual</label>
+                <input type="text" id="txtFechaActual" disabled>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        Derechos reservados a [Paola Nicole Mendoza Ordoñez]
+    </footer>
+
+    <script>
+        // ========== FORMULARIO MULTIPLICAR ==========
+        function multiplicar() {
+            const txtNumero1 = document.getElementById("txtNumero1");
+            const txtNumero2 = document.getElementById("txtNumero2");
+            const txtResultado = document.getElementById("txtResultado");
+            
+            const num1 = parseInt(txtNumero1.value);
+            const num2 = parseInt(txtNumero2.value);
+            
+            const resultado = num1 * num2;
+            
+            txtResultado.value = resultado;
         }
 
-        
-        getNombreCompleto() {
-            return this.nombre + " " + this.apellido;
+        const btnMultiplicar = document.getElementById("btnMultiplicar");
+        btnMultiplicar.addEventListener("click", multiplicar);
+
+        // ========== FORMULARIO REGISTRO CON CLASE ==========
+        class Persona {
+            constructor(nombre, apellido) {
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+
+            getNombreCompleto() {
+                return this.nombre + " " + this.apellido;
+            }
         }
-    }
 
-    
-    function registrar() {
-        
-        const txtNombre = document.getElementById("txtNombre");
-        const txtApellido = document.getElementById("txtApellido");
-        const txtNombreCompleto = document.getElementById("txtNombreCompleto");
-        
-        
-        const persona = new Persona(txtNombre.value, txtApellido.value);
-        
-        
-        const nombreCompleto = persona.getNombreCompleto();
-        
-        
-        txtNombreCompleto.value = nombreCompleto;
-    }
+        function registrar() {
+            const txtNombre = document.getElementById("txtNombre");
+            const txtApellido = document.getElementById("txtApellido");
+            const txtNombreCompleto = document.getElementById("txtNombreCompleto");
+            
+            const persona = new Persona(txtNombre.value, txtApellido.value);
+            
+            const nombreCompleto = persona.getNombreCompleto();
+            
+            txtNombreCompleto.value = nombreCompleto;
+        }
 
-    
-    const btnRegistrar = document.getElementById("btnRegistrar");
-    
-    
-    btnRegistrar.addEventListener("click", registrar);
-    // ========== FECHA ACTUAL CON PROMESA ==========
-    
-    function actualizarFecha() {
-        return new Promise(function(resolve) {
-            
-            const fecha = new Date();
-            
-            
-            const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            
-            
-            const diaSemana = dias[fecha.getDay()];
-            const dia = fecha.getDate();
-            const mes = meses[fecha.getMonth()];
-            const anio = fecha.getFullYear();
-            
-            
-            const horas = fecha.getHours().toString().padStart(2, '0');
-            const minutos = fecha.getMinutes().toString().padStart(2, '0');
-            const segundos = fecha.getSeconds().toString().padStart(2, '0');
-            
-            
-            const fechaCompleta = diaSemana + ", " + dia + " de " + mes + " de " + anio + " - " + horas + ":" + minutos + ":" + segundos;
-            
-          
-            resolve(fechaCompleta);
-        });
-    }
+        const btnRegistrar = document.getElementById("btnRegistrar");
+        btnRegistrar.addEventListener("click", registrar);
 
-   
-    function mostrarFecha() {
-        
-        actualizarFecha().then(function(fechaCompleta) {
-            const txtFechaActual = document.getElementById("txtFechaActual");
-            txtFechaActual.value = fechaCompleta;
-        });
-    }
+        // ========== FECHA ACTUAL CON PROMESA ==========
+        function actualizarFecha() {
+            return new Promise(function(resolve) {
+                const fecha = new Date();
+                
+                const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+                const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                
+                const diaSemana = dias[fecha.getDay()];
+                const dia = fecha.getDate();
+                const mes = meses[fecha.getMonth()];
+                const anio = fecha.getFullYear();
+                
+                const horas = fecha.getHours().toString().padStart(2, '0');
+                const minutos = fecha.getMinutes().toString().padStart(2, '0');
+                const segundos = fecha.getSeconds().toString().padStart(2, '0');
+                
+                const fechaCompleta = diaSemana + ", " + dia + " de " + mes + " de " + anio + " - " + horas + ":" + minutos + ":" + segundos;
+                
+                resolve(fechaCompleta);
+            });
+        }
 
-    
-    setInterval(mostrarFecha, 60000);
-    
-   
-    mostrarFecha();
-</script>
+        function mostrarFecha() {
+            actualizarFecha().then(function(fechaCompleta) {
+                const txtFechaActual = document.getElementById("txtFechaActual");
+                txtFechaActual.value = fechaCompleta;
+            });
+        }
+
+        setInterval(mostrarFecha, 60000);
+        mostrarFecha();
+    </script>
 </body>
-</html
+</html>
